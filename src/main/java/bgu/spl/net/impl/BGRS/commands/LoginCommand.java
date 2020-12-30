@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.commands;
+package bgu.spl.net.impl.BGRS.commands;
 
 public class LoginCommand extends ComplexCommand {
     public LoginCommand(String username, String password) {

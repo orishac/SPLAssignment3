@@ -1,6 +1,5 @@
-package bgu.spl.net.impl.commands;
+package bgu.spl.net.impl.BGRS.commands;
 
-import bgu.spl.net.srv.Admin;
 import bgu.spl.net.srv.Student;
 
 public class StudentRegCommand extends ComplexCommand{

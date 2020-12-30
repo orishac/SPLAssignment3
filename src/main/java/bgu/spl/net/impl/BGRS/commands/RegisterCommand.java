@@ -1,6 +1,4 @@
-package bgu.spl.net.impl.commands;
-
-import bgu.spl.net.srv.Admin;
+package bgu.spl.net.impl.BGRS.commands;
 
 public class RegisterCommand extends CourseNumCommand{
 

@@ -1,7 +1,6 @@
-package bgu.spl.net.impl.commands;
+package bgu.spl.net.impl.BGRS.commands;
 
 import bgu.spl.net.srv.Admin;
-import bgu.spl.net.srv.Database;
 
 public class AdminRegCommand extends ComplexCommand{
 

@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.commands;
+package bgu.spl.net.impl.BGRS.commands;
 
 public class CourseStatCommand extends CourseNumCommand{
 

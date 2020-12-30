@@ -84,16 +84,20 @@ public class BGRSEncoderDecoder implements MessageEncoderDecoder<Command> {
                     decodePassword(nextByte);
                 return username != null && password != null;
             case 4:
+                return true;
             case 5:
             case 6:
             case 7:
-            case 8:
             case 9:
             case 10:
+            case 11:
                 if (courseNum == -1)
                     decodeCourseNum(nextByte);
                 return courseNum != -1;
-            case 11:
+            case 8:
+                if (username == null)
+                    decodeUsername(nextByte);
+                return username != null ;
         }
         return false;
     }
@@ -102,7 +106,7 @@ public class BGRSEncoderDecoder implements MessageEncoderDecoder<Command> {
         if (nextByte != '\0')
             pushByte(nextByte);
         else {
-            courseNum =
+            courseNum = nextByte;
             length = 0;
         }
     }

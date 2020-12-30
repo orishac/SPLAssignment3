@@ -22,4 +22,7 @@ public class Course {
     public LinkedList getKdam() {
         return kdams;
     }
+
+    public String getStats() {
+    }
 }

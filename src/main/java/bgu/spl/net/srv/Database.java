@@ -37,12 +37,12 @@ public class Database {
 		return true;
 	}
 
-	public void studentRegister(String username, String password) {
+	public boolean studentRegister(String username, String password) {
 		Student student = new Student(username, password);
 		users.putIfAbsent(username, student);
 	}
 
-	public void login(String username, String password) {
+	public boolean login(String username, String password) {
 		if(!users.contains(username)) {
 			//sends an error
 		}
@@ -56,44 +56,50 @@ public class Database {
 				}
 			}
 		}
+		return false;
 	}
 
-	public void logout() {
+	public boolean logout() {
 
-	}
+        return false;
+    }
 
-	/*private void courseReg(String courseNum) {
+	public boolean courseReg(int courseNum) {
 		if(!courses.contains(courseNum)) {
-			//send an error
+			return false;
 		}
 		else {
 			if(!courses.get(courseNum).isAvailable()) {
-				//sends an error
+				return false;
 			}
-			if()
 		}
 	}
 
-	 */
 
-	public void KdamCheck(String courseNum) {
+
+	public boolean KdamCheck(int courseNum) {
 		courses.get(courseNum).getKdam();
+		return true;
 	}
 
 
-	public String courseStats(String username) {
+	public String studentStats(String username) {
 		return users.get(username).getStats();
 	}
 
-	public void isRegisterd(String courseNum) {
+	public String courseStats(int courseNum) {
+		return courses.get(courseNum).getStats();
+	}
+
+	public boolean isRegisterd(int courseNum) {
 
 	}
 
-	public void unregister(String courseNum) {
+	public boolean unregister(int courseNum) {
 
 	}
 
-	private void getCourses() {
+	public void getCourses() {
 
 	}
 

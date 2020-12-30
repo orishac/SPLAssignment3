@@ -1,6 +1,6 @@
 package bgu.spl.net.impl.commands;
 
-import bgu.spl.net.impl.rci.Command;
+import bgu.spl.net.srv.Admin;
 import bgu.spl.net.srv.Database;
 
 public class AdminRegCommand extends ComplexCommand{
@@ -11,12 +11,11 @@ public class AdminRegCommand extends ComplexCommand{
     }
 
     public Command act() {
-        AdminInfo admin = new AdminInfo(this.password);
+        Admin admin = new Admin(this.username, this.password);
         if(database.adminRegister(this.username, this.password)) {
             //retunr ack
         }
-        return //error
-
+        return new Err(1);
     }
 
 }

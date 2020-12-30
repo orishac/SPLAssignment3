@@ -1,7 +1,5 @@
 package bgu.spl.net.impl.commands;
 
-import bgu.spl.net.impl.rci.Command;
-
 public class LoginCommand extends ComplexCommand {
     public LoginCommand(String username, String password) {
         super (username, password);
@@ -12,6 +10,6 @@ public class LoginCommand extends ComplexCommand {
         if(database.login(username,password)) {
             //return ack
         }
-        return //err
+        return new Err(3);
     }
 }

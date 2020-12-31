@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 import bgu.spl.net.srv.Database;
 

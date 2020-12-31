@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class LogoutCommand extends Command{
     public LogoutCommand() {
@@ -7,7 +7,7 @@ public class LogoutCommand extends Command{
 
     public Command act() {
         if(database.logout()) {
-            //retunr ack
+            return new Ack(4, "");
         }
         return new Err(4);
     }

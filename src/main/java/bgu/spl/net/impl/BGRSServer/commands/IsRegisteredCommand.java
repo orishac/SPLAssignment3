@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class IsRegisteredCommand extends CourseNumCommand {
 
@@ -8,9 +8,9 @@ public class IsRegisteredCommand extends CourseNumCommand {
     }
 
     public Command act() {
-        if(database.isRegisterd(this.CourseNum) {
-            //retunr registered
+        if(database.isRegisterd(this.CourseNum)) {
+            return new Ack(9, "");
         }
-        //return not registered
+       return new Ack(9, "NOT REGISTERED");
     }
 }

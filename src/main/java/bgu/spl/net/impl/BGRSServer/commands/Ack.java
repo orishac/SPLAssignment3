@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class Ack extends Command {
 
@@ -11,4 +11,8 @@ public class Ack extends Command {
         this.toSend = toSend;
     }
 
+    @Override
+    public Command act() {
+        return null;
+    }
 }

@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class CheckKdamCommand extends CourseNumCommand{
 
@@ -8,9 +8,8 @@ public class CheckKdamCommand extends CourseNumCommand{
     }
 
     public Command act() {
-        if(database.KdamCheck(this.CourseNum)) {
-            //retunr ack
-        }
-        return new Err(6);
+        String toSend = database.KdamCheck(this.CourseNum);
+        return new Ack(6, toSend);
     }
 }
+

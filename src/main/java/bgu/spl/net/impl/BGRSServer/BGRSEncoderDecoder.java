@@ -1,7 +1,7 @@
-package bgu.spl.net.impl.BGRS;
+package bgu.spl.net.impl.BGRSServer;
 
 import bgu.spl.net.api.MessageEncoderDecoder;
-import bgu.spl.net.impl.BGRS.commands.*;
+import bgu.spl.net.impl.BGRSServer.commands.*;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

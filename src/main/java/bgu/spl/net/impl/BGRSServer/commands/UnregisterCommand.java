@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class UnregisterCommand extends CourseNumCommand{
 
@@ -8,8 +8,8 @@ public class UnregisterCommand extends CourseNumCommand{
     }
 
     public Command act() {
-        if(database.unregister(this.CourseNum) {
-            //retunr ack
+        if(database.unregister(this.CourseNum)) {
+            return new Ack(10, "");
         }
         return new Err(10);
     }

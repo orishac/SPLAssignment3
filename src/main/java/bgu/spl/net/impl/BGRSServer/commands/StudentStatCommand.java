@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class StudentStatCommand extends UsernameCommand {
 
@@ -8,9 +8,7 @@ public class StudentStatCommand extends UsernameCommand {
     }
 
     public Command act() {
-        database.studentStats(this.username)) {
-            //retunr ack
-        }
-
+        String toSend = database.studentStats(this.username);
+        return new Ack(8, toSend);
     }
 }

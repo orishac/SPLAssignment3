@@ -40,28 +40,28 @@ public class Database {
 	public boolean studentRegister(String username, String password) {
 		Student student = new Student(username, password);
 		users.putIfAbsent(username, student);
+		return true;
 	}
 
 	public boolean login(String username, String password) {
 		if(!users.contains(username)) {
-			//sends an error
+			return false;
 		}
 		else {
 			if(!users.get(username).isSamePassword(password)) {
-				//sends an error
+				return false;
 			}
 			else {
 				if(users.get(username).isLoggedIn()) {
-					//sends an error
+					return false;
 				}
 			}
 		}
-		return false;
+		return true;
 	}
 
 	public boolean logout() {
-
-        return false;
+        return true;
     }
 
 	public boolean courseReg(int courseNum) {
@@ -73,13 +73,13 @@ public class Database {
 				return false;
 			}
 		}
+		return true;
 	}
 
 
 
-	public boolean KdamCheck(int courseNum) {
-		courses.get(courseNum).getKdam();
-		return true;
+	public String KdamCheck(int courseNum) {
+		return courses.get(courseNum).getKdam();
 	}
 
 
@@ -92,11 +92,11 @@ public class Database {
 	}
 
 	public boolean isRegisterd(int courseNum) {
-
+		return courses.get(courseNum).checkIfStudentRegistered("username");
 	}
 
 	public boolean unregister(int courseNum) {
-
+		return courses.get(courseNum).deleteStudent("username");
 	}
 
 	public void getCourses() {

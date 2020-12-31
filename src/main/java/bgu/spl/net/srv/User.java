@@ -1,5 +1,7 @@
 package bgu.spl.net.srv;
 
+import java.util.LinkedList;
+
 public abstract class User {
     private String username;
     private String password;

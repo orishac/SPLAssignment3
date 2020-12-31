@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class RegisterCommand extends CourseNumCommand{
 
@@ -9,7 +9,7 @@ public class RegisterCommand extends CourseNumCommand{
 
     public Command act() {
         if(database.courseReg(this.CourseNum)) {
-            //retunr ack
+            return new Ack(5, "");
         }
         return new Err(5);
     }

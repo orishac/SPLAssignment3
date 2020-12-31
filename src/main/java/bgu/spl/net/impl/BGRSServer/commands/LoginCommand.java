@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class LoginCommand extends ComplexCommand {
     public LoginCommand(String username, String password) {
@@ -8,7 +8,7 @@ public class LoginCommand extends ComplexCommand {
 
     public Command act() {
         if(database.login(username,password)) {
-            //return ack
+            return new Ack(3, "");
         }
         return new Err(3);
     }

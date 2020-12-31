@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class MyCoursesCommand extends Command{
 
@@ -8,5 +8,6 @@ public class MyCoursesCommand extends Command{
 
     public Command act() {
         database.getCourses();
+        return new Ack(11, "");
     }
 }

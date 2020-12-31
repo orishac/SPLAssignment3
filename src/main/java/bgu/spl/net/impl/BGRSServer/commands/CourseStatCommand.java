@@ -1,4 +1,4 @@
-package bgu.spl.net.impl.BGRS.commands;
+package bgu.spl.net.impl.BGRSServer.commands;
 
 public class CourseStatCommand extends CourseNumCommand{
 
@@ -8,8 +8,8 @@ public class CourseStatCommand extends CourseNumCommand{
     }
 
     public Command act() {
-        database.courseStats(this.CourseNum) {
-            //retunr ack
+        String toSend = database.courseStats(this.CourseNum);
+        return new Ack(7, toSend);
         }
     }
-}
+

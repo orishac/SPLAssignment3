@@ -1,4 +1,8 @@
 package bgu.spl.net.srv;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.Scanner;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -22,6 +26,7 @@ public class Database {
 	private Database() {
 		courses = new ConcurrentHashMap<>();
 		users = new ConcurrentHashMap<String, User>();
+		initialize("./IdeaProjects/Assignment3/Courses.txt");
 	}
 
 	/**
@@ -44,15 +49,13 @@ public class Database {
 	}
 
 	public boolean login(String username, String password) {
-		if(!users.contains(username)) {
+		if (!users.contains(username)) {
 			return false;
-		}
-		else {
-			if(!users.get(username).isSamePassword(password)) {
+		} else {
+			if (!users.get(username).isSamePassword(password)) {
 				return false;
-			}
-			else {
-				if(users.get(username).isLoggedIn()) {
+			} else {
+				if (users.get(username).isLoggedIn()) {
 					return false;
 				}
 			}
@@ -61,21 +64,19 @@ public class Database {
 	}
 
 	public boolean logout() {
-        return true;
-    }
+		return true;
+	}
 
 	public boolean courseReg(int courseNum) {
-		if(!courses.contains(courseNum)) {
+		if (!courses.contains(courseNum)) {
 			return false;
-		}
-		else {
-			if(!courses.get(courseNum).isAvailable()) {
+		} else {
+			if (!courses.get(courseNum).isAvailable()) {
 				return false;
 			}
 		}
 		return true;
 	}
-
 
 
 	public String KdamCheck(int courseNum) {
@@ -104,16 +105,36 @@ public class Database {
 	}
 
 
-
-	
 	/**
-	 * loades the courses from the file path specified 
+	 * loades the courses from the file path specified
 	 * into the Database, returns true if successful.
 	 */
 	boolean initialize(String coursesFilePath) {
 		// TODO: implement
-		return false;
+		try {
+			Scanner input = new Scanner(new File(coursesFilePath));
+			input.useDelimiter("|");
+			while (input.hasNext()) {
+				int id = input.nextInt();
+				String name = input.next();
+				String list = input.next();
+				int maxStudents = input.nextInt();
+				LinkedList<Integer> kdams = new LinkedList<>();
+
+				list.substring(1, list.length() - 1);
+				String[] courseslist = list.split(",");
+				for (int i = 0; i < list.length(); i++) {
+					kdams.add(Integer.valueOf(courseslist[i]));
+				}
+				Course toAdd = new Course(name, id, maxStudents, kdams);
+			}
+
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		return true;
+
+
 	}
-
-
 }

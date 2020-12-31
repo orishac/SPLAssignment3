@@ -8,7 +8,7 @@ public class Course {
     private String name;
     private int courseNum;
     private int seatsAvailable;
-    private LinkedList<Course> kdams;
+    private LinkedList<Integer> kdams;
     private LinkedList<String> studentRegisterd;
 
     public Course(String name, int num, int seatsAvailable, LinkedList kdamCourses) {

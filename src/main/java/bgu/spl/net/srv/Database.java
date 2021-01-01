@@ -63,8 +63,12 @@ public class Database {
 		return true;
 	}
 
-	public boolean logout() {
-		return true;
+	public boolean logout(String username) {
+		if (users.get(username).isLoggedIn()) {
+			users.get(username).loginStatus(false);
+			return true;
+		}
+		return false;
 	}
 
 	public boolean courseReg(int courseNum) {
